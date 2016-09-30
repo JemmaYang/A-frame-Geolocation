@@ -1,19 +1,21 @@
 <!DOCTYPE>
 <html>
   <head>
-  <script src="https://aframe.io/releases/0.2.0/aframe.js"></script>
+  <script src="https://aframe.io/releases/0.3.0/aframe.js"></script>
   </head>
 
   <body>
     <a-scene>
        
        <a-box  color="red" width="1" height="1" depth="1"
-              position="0 0 0"
+                position="0 0 0"
                rotation="45 45 45"
-               scale="1 2.5 1"
-               >
-           <a-animation attribute="rotation" begin="click" repeat="indefinite" to="0 360 0"></a-animation>
-           
+               scale="1 0.5 1">
+
+           <a-animation attribute="rotation" begin="click"  repeat="indefinite" to="0 360 0"></a-animation>
+     
+<a-event name="mouseenter" scale="1 0.5 1"></a-event>
+               
                </a-box>
 
                <a-camera position ="0 7 5">
