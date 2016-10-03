@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Create a New Pen</title>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </head>
+
+  <body>
+
+    <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! • A-Frame</title>
+    <meta name="description" content="Hello, World! • A-Frame">
+    <script src="https://aframe.io/releases/0.3.0/aframe.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+    <img id="sky" src="https://upload.wikimedia.org/wikipedia/commons/6/65/SonyCenter_360panorama.jpg">
+  </a-assets>
+
+      <a-sphere id="sphereParent" position="0 1.25 -1" radius="0.6" color="#EF2D5E"></a-sphere>
+      <a-box id= "boxParent" position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9"></a-box>
+      <a-cylinder id="cylinder" position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane id="planeParent" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+
+      <a-sky id="skyGround" color="#ECECEC" ></a-sky>
+      
+      <a-entity position="0 0 3.8">
+        <a-camera>
+        <a-cursor color="red"></a-cursor>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
+    
+        <script src="js/index.js"></script>
+
+    
+    
+  </body>
+</html>
