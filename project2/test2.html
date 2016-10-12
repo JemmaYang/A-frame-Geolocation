@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test page</title>
+    
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="resources/js/aframe-extras.shadows.js"></script>
+   <script src="resources/js/aframe-look-at-component.js"></script>
+   <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    
+  </head>
+  <body>
+    
+ <a-scene> 
+ <a-assets>
+ <img id="library" src="image/Library.jpg">
+ <img id="grant" src="image/Grant Field.jpg">
+ <img id="tower" src="image/Tech Tower.jpg">
+ <img id="swann" src="image/Swann Building.jpg">
+ <img id="carnegie" src="image/Carnegie Building.jpg">
+ <img id="start" src="image/start.png">
+  <a-asset-item id="glassBox" src="model/box.dae"></a-asset-item>
+  <a-asset-item id="arrows" src="model/arrows.dae"></a-asset-item>
+  <a-asset-item id="portal" src="model/portal.dae"></a-asset-item>
+  
+ </a-assets>
+
+ <a-entity id="firstPage" >
+
+   <a-box position="0 2 -3" rotation="45 -300 0" width="1" height="1" depth="1"  color="#4CC3D9" opacity="0.8" onclick="jumpBox()">
+   <a-animation attribute="rotation" from="45 -300 0" to="45 60 0" fill="both" dur="1200" repeat= "3" easing="ease-out"  fill="both" ></a-animation>
+   <a-animation attribute="scale" from="0 0 0" to="0.5 0.5 0.5" delay="1500"
+                       dur="1200" fill="both" easing="ease-out"></a-animation>
+   <a-animation attribute="position" from="0 -0.8 0" to="0 2 -3" delay="500" dur="500"
+                       fill="both" easing="ease-out"></a-animation>
+   </a-box>
+
+  <a-image src="#start" width="1" height="0.25" opacity="0.75" position="0 1 -1.5" >
+  
+  <a-animation attribute="scale" from="2 0 2" to="1 1 1" delay="1500"
+                       dur="1200" fill="both" easing="ease-out"></a-animation>
+          <a-animation attribute="position" from="0 -2.3 0" to="0 0.9 -1.5" delay="1000"
+                       dur="1000" fill="both" easing="ease-out"></a-animation>
+        </a-image>
+
+<a-entity>
+ <a-animation attribute="position" from="0 0 -10" to="0 0 -0.5" delay="1000"
+                       dur="1500" fill="both" easing="ease-out"></a-animation>
+
+ <a-curvedimage src="#library" radius="8" theta-length="55" height="4"
+                     rotation="0 130 0" opacity="0.5" position="0.1 1.6 -1"></a-curvedimage>
+  <a-curvedimage src="#grant" radius="8" theta-length="60" height="4.2"
+                     opacity="0.5" rotation="0 170 0" position="-0.2 4 -1.5"></a-curvedimage>
+  <a-curvedimage src="#swann" radius="8" theta-length="50" height="4.2"
+                     opacity="0.5" rotation="0 -170 0" position="0.1 0.7 -1" ></a-curvedimage>
+  <a-curvedimage src="#tower" radius="8" theta-length="35" height="6.02"
+                     opacity="0.5" rotation="0 -135 0" position="-0.6 2.3 -2"></a-curvedimage>
+  <a-curvedimage src="#carnegie" radius="8" theta-length="45" height="4.2"
+                     opacity="0.5" rotation="0 105 0" position="0.5 2.8 -1.8"></a-curvedimage>
+  </a-entity>
+
+   <a-sky color="#2F4F4F"></a-sky>
+  
+  </a-entity>
+
+  <a-text id="startText" text=" "
+               color="black" position="-2 4 -6" rotation= "10 -7 0" scale="1.5 1.5 1.5" width="600" align="left">
+  </a-text>
+  
+ 
+
+  <a-entity position="0 0 0">
+  <a-camera >
+     <a-cursor color="#2E3A87" fuse="true" fuseTimeout="500" ></a-cursor>
+  </a-camera>
+</a-entity>
+ 
+  
+ </a-scene>
+  <script src="test.js"></script>
+  <script src="variable.js"></script>
+  <script src="geotest.js"></script>
+  </body>
+ </html>
+    
+    
