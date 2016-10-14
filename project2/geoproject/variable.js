@@ -19,9 +19,7 @@ function showPortal(){
   //Make the geolocation call.  This function will do the rest of the
   //variable checking for us.
   var geolocationCall = navigator.geolocation.watchPosition(checkPortalLocation);
-  var displayPortal = document.getElementById("firstPage");
-          displayPortal.innerHTML = "<a-entity id='timeMachine' obj-model='obj:#timemachine-obj; mtl:#timemachine-mtl' scale='0.05 0.05 0.05' position='0 -2 -5' rotation='0 60 10' onclick='show()'></a-entity>"
-          displayPortal.innerHTML += "<a-animation attribute='scale' from='0.4 0.4 0.4' to='0.9 0.9 0.9' during='2500' ></a-animation>"
+  
 }
 
 
@@ -57,7 +55,9 @@ function checkPortalLocation(positionData)
          
           resultText+="\nYou have found the time machine!\nBegin to travel in Time!";
           console.log("Location was reached. Updating scene now.");
-          
+          var displayPortal = document.getElementById("firstPage");
+          displayPortal.innerHTML = "<a-entity id='timeMachine' obj-model='obj:#timemachine-obj; mtl:#timemachine-mtl' scale='0.05 0.05 0.05' position='0 -2 -5' rotation='0 60 10' onclick='show()'></a-entity>"
+          displayPortal.innerHTML += "<a-animation attribute='scale' from='0.4 0.4 0.4' to='0.9 0.9 0.9' during='2500' ></a-animation>"
       }
 
       else
