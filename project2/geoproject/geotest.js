@@ -65,12 +65,19 @@ if (typeof(Number.prototype.toRad) === "undefined") {
 
 function show(){
   
-  console.log("Starting the program.");
+  console.log("Starting the program with five places.");
 
   //Make the geolocation call.  This function will do the rest of the
   //variable checking for us.
   var geolocationCall = navigator.geolocation.watchPosition(checkReceivedLocation);
-  
+
+  var displayCor = document.getElementById("firstPage");
+      displayCor.innerHTML = "<a-entity id='cordiLib' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-3 -2 -7' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiGra' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-1 -2 -5' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiSwa' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='0 -2 -10' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiTow' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='1 -2 -5' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiCar' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='3 -2 -7' rotation='0 60 10'></a-entity>"
+
 }
 
 
@@ -78,7 +85,7 @@ function show(){
 function checkReceivedLocation(positionData)
 {
   
-    console.log("checking location.");
+    console.log("checking five locations.");
     var resultText =" ";
 
     var currentLocation = positionData.coords;
@@ -91,7 +98,7 @@ function checkReceivedLocation(positionData)
                                    locations[i].latitude);
 
 
-      resultText += "\n"+locations[i].name+" is "+ newDistance.toFixed(4)+".";
+      resultText += "\n"+locations[i].name+" is "+ newDistance.toFixed(4)+" km.";
 
       console.log(resultText);
       console.log(currentLocation.longitude);
