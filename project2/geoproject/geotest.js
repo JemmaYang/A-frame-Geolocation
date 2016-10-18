@@ -71,13 +71,6 @@ function show(){
   //variable checking for us.
   var geolocationCall = navigator.geolocation.watchPosition(checkReceivedLocation);
 
-  var displayCor = document.getElementById("firstPage");
-      displayCor.innerHTML = "<a-entity id='cordiLib' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-3 -2 -7' rotation='0 60 10'></a-entity>"
-      displayCor.innerHTML += "<a-entity id='cordiGra' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-1 -2 -5' rotation='0 60 10'></a-entity>"
-      displayCor.innerHTML += "<a-entity id='cordiSwa' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='0 -2 -10' rotation='0 60 10'></a-entity>"
-      displayCor.innerHTML += "<a-entity id='cordiTow' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='1 -2 -5' rotation='0 60 10'></a-entity>"
-      displayCor.innerHTML += "<a-entity id='cordiCar' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='3 -2 -7' rotation='0 60 10'></a-entity>"
-
 }
 
 
@@ -87,6 +80,14 @@ function checkReceivedLocation(positionData)
   
     console.log("checking five locations.");
     var resultText =" ";
+
+    var displayCor = document.getElementById("firstPage");
+      displayCor.innerHTML = "<a-entity id='cordiLib' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-3 -2 -7' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiSwa' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-1 -2 -5' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiGra' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='0 -2 -10' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiTow' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='1 -2 -5' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiCar' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='3 -2 -7' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-animation attribute='ratation' from='0 -330 0' to='0 30 0' during='2000'  repeat='indefinite' "
 
     var currentLocation = positionData.coords;
     for(var i=0; i<locations.length; i++){
@@ -121,8 +122,11 @@ function checkReceivedLocation(positionData)
             console.log("Location hasn't been reached yet.");
             resultText+="\nLocation hasn't been reached yet.";
           }
-          var debugText = document.getElementById("startText")
-          debugText.setAttribute('text', resultText);
+        var textList = document.getElementsByClassName("Coordinates")   
+        textList[i].innerHTML += "<a-text id= 'distanceText' text=' ' color='#52DACA' position='-20 115 -2' width='400' align='left' scale ='60 60 60' rotation='0 -90 0'></a-text>"
+        var showDistance = document.getElementById("distanceText")
+        showDistance.setAttribute("text", resultText)
       }
-
+   var debugText = document.getElementById("startText")
+          debugText.setAttribute("visible", false);
 }

@@ -18,25 +18,21 @@
     <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../resources/style.css">
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
-    
-
      
 
     
   </head>
   <body>
-     
- <a-scene id="aframeScene"> 
+    
+ <a-scene> 
  <!-- uploade all objects -->
  <a-assets>
- <img id="library" class="oldImage" src="../image/Library.jpg">
- <img id="swann" class="oldImage" src="../image/Swann Building.jpg">
- <img id="grant" class="oldImage" src="../image/Grant Field.jpg">
- <img id="tower" class="oldImage" src="../image/Tech Tower.jpg">
- <img id="carnegie" class="oldImage" src="../image/Carnegie Building.jpg">
-
+ <img id="library" src="../image/Library.jpg">
+ <img id="grant" src="../image/Grant Field.jpg">
+ <img id="tower" src="../image/Tech Tower.jpg">
+ <img id="swann" src="../image/Swann Building.jpg">
+ <img id="carnegie" src="../image/Carnegie Building.jpg">
  <img id="start" src="../image/start.png">
-
   <a-asset-item id="box-obj" src="../model/box.obj"></a-asset-item>
   <a-asset-item id="box-mtl" src="../model/box.mtl"></a-asset-item>
   <a-asset-item id="timemachine-obj" src="../model/timemachine.obj"></a-asset-item>
@@ -64,15 +60,26 @@
                        dur="1200" fill="both" easing="ease-out"></a-animation>
    <a-animation attribute="position" from="0.5 -0.8 0" to="0.5 1.2 -5" delay="500" dur="500"
                        fill="both" easing="ease-out"></a-animation>
+
       </a-entity>
 
 
-  <a-image src="#start" width="1" height="0.25" opacity="0.75" position="0 1 -1.5" onclick="jumpBox()">
+  <a-image src="#start" width="1" height="0.25" opacity="0.75" position="0 1 -1.5" onclick="beginChangeBox()">
   
   <a-animation attribute="scale" from="2 0 2" to="1 1 1" delay="1500"
                        dur="1200" fill="both" easing="ease-out"></a-animation>
           <a-animation attribute="position" from="0 -2.3 0" to="0 0.9 -1.5" delay="1000"
                        dur="1000" fill="both" easing="ease-out"></a-animation>
+      <a-animation id="fadeOutAnim" attribute="opacity"
+                               begin="fadeOut!"
+                               delay="0"
+                               dur="3000"
+                               ease="linear"
+                               from="1"
+                               to="0">
+        </a-animation>
+        
+
         </a-image>
 
 <a-entity>
@@ -91,63 +98,30 @@
                      opacity="0.8" rotation="0 -190 0" position="0.1 0.7 -1" ></a-curvedimage>
   <a-curvedimage src="#carnegie" radius="8" theta-length="35" height="4.2"
                      opacity="0.8" rotation="0 135 0" position="0.5 2.8 -2.1"></a-curvedimage>
+     
   </a-entity>
 
   </a-entity>
 
  
   <a-text id="startText" text=" "
-               color="#52DACA" position="-2 2.5 -6" rotation= "10 -7 0" scale="1.5 1.5 1.5" width="600" align="left">
+               color="black" position="-2 2.5 -6" rotation= "10 -7 0" scale="1.5 1.5 1.5" width="600" align="left">
   </a-text>
   
- <a-entity id="coordiContainer" visible= "false">  
-   <a-entity id='cordiLib' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-1.5 -2 -4' rotation='0 60 10' >
-     <a-text class="CoordText" text="1-TESTING THE TEXT" color="#52DACA" position="-20 115 -2" width="400" aligh="left" scale="50 50 50" rotation= "0 -90 0"></a-text> 
-   </a-entity>
-
-   <a-entity id='cordiSwa' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-3 -2 -8' rotation='0 90 10'>
-     <a-text class="CoordText" text="2" color="#52DACA" position="-20 125 -2" width="400" aligh="left" scale="70 70 70" rotation= "0 -90 0"></a-text> 
-   </a-entity>
-
-   <a-entity id='cordiGra' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='0 -2 -9' rotation='0 60 10' >
-     <a-text class="CoordText" text="3" color="#52DACA" position="-20 130 -2" width="400" aligh="left" scale="70 70 70" rotation= "0 -90 0"></a-text> 
-   </a-entity>
-
-   <a-entity id='cordiTow' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='4 -2 -6' rotation='0 60 10' >
-     <a-text class="CoordText" text="4" color="#52DACA" rotation= "0 -90 0" position="-20 120 -2" width="400" scale="70 70 70" aligh="left"></a-text>
-   </a-entity>
-
-   <a-entity id='cordiCar' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='1.5 -2 -3' rotation='0 60 10'  >
-     <a-text class="CoordText" text="5" color="#52DACA" rotation= "0 -90 0" position="-20 110 -2" width="400" aligh="left" scale="50 50 50"></a-text> 
-   </a-entity>
-</a-entity>
-   
-   <a-plane id="historicImage" width="30" height="15" position="0 3 -20" opacity="0.8" color= "#F3D386" visible="false"></a-plane>
   
-        
 
 
-<a-entity position="0 0 0">
-        <a-camera>
-            <a-entity id="myCursor" cursor="fuse:true; fuse-timeout: 300"
-                        position="0 0 -1"
-                        geometry="primitive:ring; radiusInner: 0.02; radiusOuter: 0.03"
-                        material="color: #2E3A87; opacity:0.5;">
-
-                        <a-animation id="colorAnim1" begin="cursor-fusing" easing="ease-in" attribute="material.color"
-                                    fill="forwards" from="#2E3A87" to="white" dur="300"></a-animation>
-                       <a-animation id="colorAnim2" begin="click" easing="ease-in" attribute="material.color"
-                                    fill="forwards" from="white" to="#2E3A87" dur="300"></a-animation>
-
+  <a-entity position="0 0 0">
+  <a-camera >
+     <a-cursor color="black" fuse="true" fuseTimeout="500" ></a-cursor>
+  </a-camera>
 </a-entity>
- </a-camera>
- </a-entity>
+ 
   
  </a-scene>
   <script src="test.js"></script>
   <script src="variable.js"></script>
-  <script src="geotest-visble.js"></script>
-  <link rel="stylesheet" type="text/css" href=" stylecss.css">
+  <script src="geotest.js"></script>
   </body>
  </html>
     

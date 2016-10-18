@@ -2,14 +2,34 @@ var portalLocations= [
 //location 1 : libarry.
 {
 name: "Skiles Building",
-latitude : 33.774313,
-longitude: -84.396504
+//latitude : 33.773688,
+//longitude: -84.395913
+latitude : 33.777390,
+longitude: -84.408428
 },
 
 
 ];
 
 
+function circleDistance(lon1, lat1, lon2, lat2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = (lat2-lat1).toRad();  // Javascript functions in radians
+  var dLon = (lon2-lon1).toRad();
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+          Math.sin(dLon/2) * Math.sin(dLon/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c; // Distance in km
+  return d;
+}
+
+/** Converts numeric degrees to radians */
+if (typeof(Number.prototype.toRad) === "undefined") {
+  Number.prototype.toRad = function() {
+    return this * Math.PI / 180;
+  }
+}
 
 
 function showPortal(){
@@ -45,11 +65,11 @@ function checkPortalLocation(positionData)
     console.log(resultText);
      console.log(currentLocation.longitude);
      console.log(currentLocation.latitude);
-     console.log(locations[0].longitude);
-     console.log(locations[0].latitude);
+     console.log(portalLocations[0].longitude);
+     console.log(portalLocations[0].latitude);
 
 
-    if (newDistance <= maxDistance )
+    if (newDistance <= 0.055 )
       {
           //You have reached the location.
          
@@ -57,7 +77,8 @@ function checkPortalLocation(positionData)
           console.log("Location was reached. Updating scene now.");
           var displayPortal = document.getElementById("firstPage");
           displayPortal.innerHTML = "<a-entity id='timeMachine' obj-model='obj:#timemachine-obj; mtl:#timemachine-mtl' scale='0.05 0.05 0.05' position='0 -2 -5' rotation='0 60 10' onclick='show()'></a-entity>"
-          displayPortal.innerHTML += "<a-animation attribute='scale' from='0.4 0.4 0.4' to='0.9 0.9 0.9' during='2500' ></a-animation>"
+       
+          
       }
 
       else
@@ -69,5 +90,8 @@ function checkPortalLocation(positionData)
         }
         var distanceText = document.getElementById("startText");
         distanceText.setAttribute("text", resultText);
+        var planeSize = document.getElementById("messagePlane");
+        planeSize.setAttribute("height", 1.5);
+        planeSize.setAttribute("position",{x:1.3,y:0.2,z:-0.5});
       }
 
