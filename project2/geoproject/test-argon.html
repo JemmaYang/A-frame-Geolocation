@@ -8,12 +8,12 @@
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
     <script src="../resources/js/aframe-extras.shadows.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
-    <!--
+    
     <script src="../resources/js/argon.min.js"></script>
     <script src="../build.js"></script>
     <script src="../resources/js/CSS3DArgonRenderer.js"></script>
     <script src="../resources/js/CSS3DArgonHUD.js"></script>
-   -->
+   
     <script src="../resources/js/aframe-look-at-component.js"></script>
     <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../resources/style.css">
@@ -25,6 +25,8 @@
     
   </head>
   <body>
+<div id="headArea"><img src="../image/title.png" width="100%" ></div>
+<div id='footArea'><img src="../image/menu.png" width="130px" height="160px"></div>
      
  <a-scene id="aframeScene"> 
  <!-- uploade all objects -->
@@ -54,7 +56,7 @@
      <a-entity obj-model="obj: #timemachine-obj; mtl: #timemachine-mtl" scale="0.05 0.05 0.05">
         <a-entity scale="2 2 2">
          <a-animation attribute="rotation" from="0 -330 0 " to="0 30 0 " repeat="1" dur="2200" fill ="both" easing ="ease-out"></a-animation>
-            <a-entity obj-model="obj: #box-obj; mtl: #box-mtl" scale="0.15 0.15 0.15" position="-5 6 -20" rotation="0 -90 0" alongpath="path:0,0,0 -5,20,-40 -5,6,-20; closed:false; dur:2000; delay:2500">
+            <a-entity obj-model="obj: #box-obj; mtl: #box-mtl" scale="0.15 0.15 0.15" position="-5 6 -20" rotation="0 -90 0" alongpath="path:0,0,0 -5,20,-40 -5,6,-20; closed:false; dur:2000; delay:2500; inspect:false">
             </a-entity>
        </a-entity>
        
@@ -122,7 +124,7 @@
    </a-entity>
 </a-entity>
    
-   <a-plane id="historicImage" width="30" height="15" position="0 3 -20" opacity="0.8" color= "#F3D386" visible="false"></a-plane>
+   <a-plane id="historicImage" width="20" height="15" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
   
         
 
@@ -146,7 +148,9 @@
  </a-scene>
   <script src="test.js"></script>
   <script src="variable.js"></script>
-  <script src="geotest-visble.js"></script>
+  <script src="portalfunction.js"></script>
+  <script src="coorImagefunction.js"></script>
+  <script src="countnum.js"></script>
   <link rel="stylesheet" type="text/css" href=" stylecss.css">
   </body>
  </html>

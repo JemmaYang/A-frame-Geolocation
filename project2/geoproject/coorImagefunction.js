@@ -1,46 +1,4 @@
-var locations= [
-//location 1 : libarry.
-{
-name:"Library",
-latitude: 33.774192,
-longitude: -84.395110
-},
 
-//location 2 : swann building.
-{
-name:"Swann Building",
-latitude:33.7715825,
-longitude:-84.3974803 
-},
-
-//location 3 : grant field.
-{
-name:"Grant Field",
-latitude:33.7724493,
-longitude:-84.3949941   
-},
-
-//location 4 : tech tower.
-{
-name:"Tech Tower",
-latitude:33.7723604,
-longitude:-84.3970267  
-},
-
-//location 5 : carnegie building.
-{
-name:"Carnegie Building",
-latitude: 33.773705,      
-longitude: -84.3970588
-}
-];
-
-var maxDistance=0.055;
-
-var geolocationOptions = {
-
-    enableHighAccuracy: true,
-    maximumAge: 0};
 
 // function circleDistance(lon1, lat1, lon2, lat2) {
 //   var R = 6371; // Radius of the earth in km
@@ -64,14 +22,18 @@ var geolocationOptions = {
 
 
 function show(){
+
+  var hideTimeMachine = document.getElementById("firstPage");
+   hideTimeMachine.innerHTML =" ";
+
+    var displayCor = document.getElementById("coordiContainer");
+    displayCor.setAttribute("visible",true);
   
   console.log("Starting the program with five places.");
    
-   
-
   //Make the geolocation call.  This function will do the rest of the
   //variable checking for us.
-  var geolocationCall = navigator.geolocation.watchPosition(checkReceivedLocation);
+  geolocationCall = navigator.geolocation.watchPosition(checkReceivedLocation);
 
 
 }
@@ -80,16 +42,15 @@ function show(){
 
 function checkReceivedLocation(positionData)
 {
-    var hideTimeMachine = document.getElementById("firstPage");
-   hideTimeMachine.innerHTML =" ";
+    
 
-   var displayCor = document.getElementById("coordiContainer");
-   displayCor.setAttribute("visible",true)
 
-  var addDivMenu = document.body;
-  addDivMenu.innerHTML = addDivMenu.innerHTML + "<div id='footArea'><div>You have visited: </div></div>";
 
-    var imageIndex = document.getElementsByClassName("oldImage").src;
+  //var addDivMenu = document.body;
+  //addDivMenu.innerHTML = addDivMenu.innerHTML + "<div id='footArea'><div>You have visited: </div></div>";
+
+    var imageIndex = document.getElementsByClassName("oldImage");
+    console.log(imageIndex);
 
     console.log("checking five locations.");
    
@@ -119,11 +80,20 @@ function checkReceivedLocation(positionData)
          
           resultText+="\nLocation was reached! Updating scene now.";
           console.log("Location was reached. Updating scene now.");
+
           var showImagePlane = document.getElementById("historicImage");
           showImagePlane.setAttribute("visible",true);
-          showImagePlane.setAttribute("src", imageIndex[i]);
-          var addPlaceMenu =ducument.getElementById("footArea")
-          addPlaceMenu.innerHTML += "<div>"+ locations[i].name +"</div>"
+          //showImagePlane.innerHTML += "<a-entity id='robotContainer' visible = 'true' ><a-entity id='robotSecond' obj-model='obj:#robot-obj; mtl:#robot-mtl' scale='0.05 0.05 0.05' position='0 0 2' rotation='0 -25 0' onclick='countNum()'></a-entity></a-entity>"
+
+          var getImage = imageIndex[i].src;
+          showImagePlane.setAttribute("src", getImage);
+
+          var displayCor = document.getElementById("coordiContainer");
+          displayCor.setAttribute("visible",false);
+          
+          //var addPlaceMenu =document.getElementById("footArea")
+          //addPlaceMenu.innerHTML += "<div>"+ locations[i].name +"</div>"
+          //console.log(addPlaceMenu.innerHTML);
 
         }
 
@@ -135,7 +105,7 @@ function checkReceivedLocation(positionData)
         var textList = document.getElementsByClassName("CoordText")   
         textList[i].setAttribute("text",resultText) ;
       }
-   var debugText = document.getElementById("startText")
+          var debugText = document.getElementById("startText")
           debugText.setAttribute("visible", false);
 }
 
