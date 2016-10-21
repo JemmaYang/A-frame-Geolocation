@@ -38,7 +38,7 @@ console.log("show message")
 
 function toggle(){
   var bt=document.getElementById("bt");
-  var googleMap=document.getElementById("googleMap");
+  var googleMap=document.getElementById("footArea");
   navigator.geolocation.getCurrentPosition(yourPosition, get_error, geolocation_options);
   if(googleMap.style.display=="block"){
     googleMap.style.display="none";
