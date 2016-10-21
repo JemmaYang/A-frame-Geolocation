@@ -1,6 +1,6 @@
 var ifTravelFinished = false;
 
-var visitedNum = 0;
+//var visitedNum = 0;
 
 var visitedPlace = " ";
 

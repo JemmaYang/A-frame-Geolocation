@@ -19,19 +19,42 @@ if (typeof(Number.prototype.toRad) === "undefined") {
 
 function showPortal(){
   
-  console.log("Starting portal program.");
+  //console.log("Starting portal program.");
 
   //Make the geolocation call.  This function will do the rest of the
   //variable checking for us.
-  geolocationCall = navigator.geolocation.watchPosition(checkPortalLocation);
+  geolocationCall = navigator.geolocation.watchPosition(checkPortalLocation, geo_error, geo_options);
+  console.log("Starting portal program.");
   
 }
 
 var geolocationCall;
 
+function geo_error() {
+  alert("Sorry, no position available.");
+}
+
+var geo_options = {
+  enableHighAccuracy: true, 
+  maximumAge        : 0, 
+  //timeout           : 27000
+};
+
 function checkPortalLocation(positionData)
 {
-  
+  //-------Map code.
+
+   // var pos = {
+   //      lat: positionData.coords.latitude,
+   //      lng: positionData.coords.longitude
+   //    };
+
+   //    infoWindow.setPosition(pos);
+   //    infoWindow.setContent('Your position.');
+
+
+
+  //-------Portal code
     console.log("checking portal location.");
     var resultText =" ";
 
@@ -53,6 +76,12 @@ function checkPortalLocation(positionData)
      console.log(portalLocations[0].longitude);
      console.log(portalLocations[0].latitude);
 
+      var planeSize = document.getElementById("messagePlane");
+        
+        planeSize.setAttribute("height",0.5);
+
+        planeSize.setAttribute("position",{x:1.3,y:0.4,z:-0.5});
+
 
     if (newDistance <= 0.055 )
       {
@@ -73,10 +102,10 @@ function checkPortalLocation(positionData)
           var moveRobot = document.getElementById("robotobj")
           moveRobot.innerHTML += "<a-animation attribute='scale' from='0.04 0.04 0.04' to='0.05 0.05 0.05' during='2500' direction='alternate' repeat='2'></a-animation>"
         }
+
         var distanceText = document.getElementById("startText");
         distanceText.setAttribute("text", resultText);
-        var planeSize = document.getElementById("messagePlane");
-        planeSize.setAttribute("height", 1.4);
-        planeSize.setAttribute("position",{x:1.3,y:0.4,z:-0.5});
+
+       
       }
 

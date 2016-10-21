@@ -23,17 +23,13 @@
 
 function show(){
 
-  var hideTimeMachine = document.getElementById("firstPage");
-   hideTimeMachine.innerHTML =" ";
-
-    var displayCor = document.getElementById("coordiContainer");
-    displayCor.setAttribute("visible",true);
+  
   
   console.log("Starting the program with five places.");
    
   //Make the geolocation call.  This function will do the rest of the
   //variable checking for us.
-  geolocationCall = navigator.geolocation.watchPosition(checkReceivedLocation);
+  geolocationCall = navigator.geolocation.watchPosition(checkReceivedLocation, geo_error, geo_options);
 
 
 }
@@ -43,22 +39,27 @@ function show(){
 function checkReceivedLocation(positionData)
 {
     
+    var hideTimeMachine = document.getElementById("firstPage");
+   hideTimeMachine.innerHTML =" ";
 
-
-
+    var displayCor = document.getElementById("coordiContainer");
+    displayCor.setAttribute("visible",true);
   //var addDivMenu = document.body;
   //addDivMenu.innerHTML = addDivMenu.innerHTML + "<div id='footArea'><div>You have visited: </div></div>";
 
     var imageIndex = document.getElementsByClassName("oldImage");
+    var textList = document.getElementsByClassName("CoordText");
     console.log(imageIndex);
 
     console.log("checking five locations.");
    
 
     var currentLocation = positionData.coords;
+    
     for(var i=0; i<locations.length; i++){
     //calculating distance with the circleDistance script.
       var resultText =" ";
+
       var newDistance=circleDistance(currentLocation.longitude,
                                    currentLocation.latitude,
                                    locations[i].longitude,
@@ -90,7 +91,9 @@ function checkReceivedLocation(positionData)
 
           var displayCor = document.getElementById("coordiContainer");
           displayCor.setAttribute("visible",false);
-          
+
+          console.log(locations[i].name);
+
           //var addPlaceMenu =document.getElementById("footArea")
           //addPlaceMenu.innerHTML += "<div>"+ locations[i].name +"</div>"
           //console.log(addPlaceMenu.innerHTML);
@@ -99,12 +102,14 @@ function checkReceivedLocation(positionData)
 
         else 
           {
+            
             console.log("Location hasn't been reached yet.");
             resultText+="\nLocation hasn't been reached yet.";
           }
-        var textList = document.getElementsByClassName("CoordText")   
+
         textList[i].setAttribute("text",resultText) ;
       }
+
           var debugText = document.getElementById("startText")
           debugText.setAttribute("visible", false);
 }

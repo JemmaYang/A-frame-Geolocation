@@ -8,7 +8,7 @@
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
     <script src="../resources/js/aframe-extras.shadows.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
-    
+  
     <script src="../resources/js/argon.min.js"></script>
     <script src="../build.js"></script>
     <script src="../resources/js/CSS3DArgonRenderer.js"></script>
@@ -19,15 +19,25 @@
     <link rel="stylesheet" type="text/css" href="../resources/style.css">
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     
-
-     
+  
+    <script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+</script>
 
     
   </head>
   <body>
 <div id="headArea"><img src="../image/title.png" width="100%" ></div>
-<div id='footArea'><img src="../image/menu.png" width="130px" height="160px"></div>
-     
+
+<div id="footArea">
+<div id="icon" ><img id="bt" src="../image/locationmaphide.png" width="80px" height="80px" onclick="toggle()"></div>
+<!-- <iframe id="footArea" src="test-map2.html"></iframe> -->
+<div id="googleMap"></div>
+</div>
+
+ <!-- 
+  <div id='footArea'><img src="../image/menu.png" width="100%"></div>
+  -->   
  <a-scene id="aframeScene"> 
  <!-- uploade all objects -->
  <a-assets>
@@ -97,6 +107,10 @@
 
   </a-entity>
 
+  <a-text id="getText" text=" " color="#52DACA" position="-2 0 -6" scalse="1.2 1.2 1.2" width="500" align="left">
+    
+  </a-text>
+
  
   <a-text id="startText" text=" "
                color="#52DACA" position="-2 2.5 -6" rotation= "10 -7 0" scale="1.5 1.5 1.5" width="600" align="left">
@@ -146,11 +160,14 @@
  </a-entity>
   
  </a-scene>
+   <script src="map.js"></script>
   <script src="test.js"></script>
   <script src="variable.js"></script>
   <script src="portalfunction.js"></script>
   <script src="coorImagefunction.js"></script>
-  <script src="countnum.js"></script>
+  
+
+
   <link rel="stylesheet" type="text/css" href=" stylecss.css">
   </body>
  </html>

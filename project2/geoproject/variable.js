@@ -2,17 +2,19 @@ var portalLocations= [
 //location 1 : libarry.
 {
 name: "Skiles Building",
+
 //real position
-latitude : 33.773688,
-longitude: -84.395913
+//latitude : 33.773688,
+//longitude: -84.395913
 
 //apartment
-//latitude : 33.777390,
-//longitude: -84.408428
+latitude : 33.777390,
+longitude: -84.408428
 
 //tech square
 //latitude : 33.777238,
 //longitude: -84.390215
+
 },
 
 ];
@@ -23,8 +25,9 @@ var locations= [
 {
 name:"Library",
 //real location
-latitude: 33.774192,
-longitude: -84.395110
+latitude: 33.7740584,
+longitude: -84.395784
+
 
 
 },
@@ -32,8 +35,6 @@ longitude: -84.395110
 //location 2 : swann building.
 {
 name:"Swann Building",
-
-
 //real location
 latitude:33.7715825,
 longitude:-84.3974803 
@@ -68,6 +69,8 @@ var geolocationOptions = {
     enableHighAccuracy: true,
     maximumAge: 0};
 
+
+var visitedNum = 0;
 //var geolocationCall;
 
 
