@@ -100,7 +100,7 @@ function yourPosition(position) {
        console.log("run here");
        infoWindow.setPosition(pos);
       infoWindow.setContent('Your position.');
-      
+        map.setCenter(pos);
      }
 
  var geolocationCall;
