@@ -4,11 +4,10 @@ var portalLocations= [
 name: "Skiles Building",
 
 //real position
-// latitude : 33.773688,
-// longitude: -84.395913
+latitude : 33.773688,
+longitude: -84.395913
 
-latitude: 33.774722,
-longitude: -84.396329
+
 //apartment
 // latitude : 33.777390,
 // longitude: -84.408428
@@ -27,10 +26,9 @@ var locations= [
 {
 name:"Library",
 //real location
-// latitude: 33.774741,
-// longitude: -84.396540
-latitude : 33.777238,
-longitude: -84.390215
+latitude: 33.774741,
+longitude: -84.396540
+
 
 
 
@@ -40,10 +38,9 @@ longitude: -84.390215
 {
 name:"Swann Building",
 //real location
- // latitude:33.7715825,
- // longitude:-84.3974803 
- latitude: 33.774722,
-longitude: -84.396329
+ latitude:33.7715825,
+ longitude:-84.3974803 
+ 
 // latitude : 33.777390,
 //  longitude: -84.408428
 },
