@@ -36,8 +36,10 @@ longitude: -84.395784
 {
 name:"Swann Building",
 //real location
-latitude:33.7715825,
-longitude:-84.3974803 
+// latitude:33.7715825,
+// longitude:-84.3974803 
+latitude : 33.777390,
+ longitude: -84.408428
 },
 
 //location 3 : grant field.
@@ -70,7 +72,7 @@ var geolocationOptions = {
     maximumAge: 0};
 
 
-var visitedNum = 0;
+
 //var geolocationCall;
 
 

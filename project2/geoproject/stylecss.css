@@ -29,11 +29,11 @@ z-index: 25;
 }
 
 
-/*#googleMap{
+#googleMap{
   
   height:100%;
   width:100%;
-  opacity: 0.6;
+  opacity: 0.8;
   display:block;
   z-index: 25;
-}*/
+}

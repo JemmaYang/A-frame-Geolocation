@@ -20,17 +20,21 @@
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     
   
-    <script
+   <!--  <script
 src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
-</script>
+</script> -->
 
+<!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADyrq87cv1tD0SuuvJwKEIr7_2G3YJvrM">
+    </script>
     
   </head>
   <body>
 <div id="headArea"><img src="../image/title.png" width="100%" ></div>
 
 <div id="footArea">
-<div id="icon" ><img id="bt" src="../image/locationmaphide.png" width="100px" height="100px" onclick="toggle()"></div>
+<div id="icon" ><img id="bt" src="../image/locationmap.png" width="100px" height="100px" onclick="toggle()"></div>
 <!-- <iframe id="footArea" src="test-map2.html"></iframe> -->
 <div id="googleMap"></div>
 </div>
@@ -41,12 +45,18 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
  <a-scene id="aframeScene"> 
  <!-- uploade all objects -->
  <a-assets>
- <img id="library" class="oldImage" src="../image/Library.jpg">
- <img id="swann" class="oldImage" src="../image/Swann Building.jpg">
- <img id="grant" class="oldImage" src="../image/Grant Field.jpg">
- <img id="tower" class="oldImage" src="../image/Tech Tower.jpg">
- <img id="carnegie" class="oldImage" src="../image/Carnegie Building.jpg">
+ <img id="library"  src="../image/Library.jpg">
+ <img id="swann"  src="../image/Swann Building.jpg">
+ <img id="grant"  src="../image/Grant Field.jpg">
+ <img id="tower"  src="../image/Tech Tower.jpg">
+ <img id="carnegie"  src="../image/Carnegie Building.jpg">
 
+ <img  class="oldImage" src="../image/library.png">
+ <img  class="oldImage" src="../image/swann.png">
+ <img  class="oldImage" src="../image/grant.png">
+ <img  class="oldImage" src="../image/tower.png">
+ <img  class="oldImage" src="../image/carnegie.png">
+ 
  <img id="start" src="../image/start.png">
 
   <a-asset-item id="box-obj" src="../model/box.obj"></a-asset-item>
@@ -57,6 +67,16 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
   <a-asset-item id="coordinate-mtl" src="../model/coordinate.mtl"></a-asset-item>
   <a-asset-item id="robot-obj" src="../model/robot.obj"></a-asset-item>
   <a-asset-item id="robot-mtl" src="../model/robot.mtl"></a-asset-item>
+  <a-asset-item id="libraryobj" src="../model/library.obj"></a-asset-item>
+  <a-asset-item id="librarymtl" src="../model/library.mtl"></a-asset-item>
+  <a-asset-item id="swannobj" src="../model/swann.obj"></a-asset-item>
+  <a-asset-item id="swannmtl" src="../model/swann.mtl"></a-asset-item>
+  <a-asset-item id="grantobj" src="../model/grant.obj"></a-asset-item>
+  <a-asset-item id="grantmtl" src="../model/grant.mtl"></a-asset-item>
+  <a-asset-item id="towerobj" src="../model/tower.obj"></a-asset-item>
+  <a-asset-item id="towermtl" src="../model/tower.mtl"></a-asset-item>
+  <a-asset-item id="carnegieobj" src="../model/carnegie.obj"></a-asset-item>
+  <a-asset-item id="carnegiemtl" src="../model/carnegie.mtl"></a-asset-item>
   
  </a-assets>
 
@@ -107,7 +127,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
 
   </a-entity>
 
-  <a-text id="getText" text=" " color="#52DACA" position="-2 0 -6" scalse="1.2 1.2 1.2" width="500" align="left">
+  <a-text id="getText" text=" " color="#52DACA" position="-2 0 -6" scale="1.2 1.2 1.2" width="500" align="left">
     
   </a-text>
 
@@ -138,9 +158,29 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
    </a-entity>
 </a-entity>
    
-   <a-plane id="historicImage" width="20" height="15" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
   
-        
+  <a-entity id="planeContainer">
+   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+
+   </a-entity>
+ 
+ <a-entity id="gotSignContainer" >
+  <a-entity id='librarygot' class="signFinish" obj-model='obj:#libraryobj; mtl:#librarymtl' scale='0.015 0.015 0.015' position='-6 3 -9' rotation='0 0 0' visible="false">
+  </a-entity> 
+  <a-entity id='swanngot' class="signFinish" obj-model='obj:#swannobj; mtl:#swannmtl' scale='0.015 0.015 0.015' position='-6 2 -9' rotation='0 0 0' visible="false">
+  </a-entity> 
+  <a-entity id='grantgot' class="signFinish" obj-model='obj:#grantobj; mtl:#grantmtl' scale='0.015 0.015 0.015' position='-6 1 -9' rotation='0 0 0' visible="false">
+  </a-entity> 
+  <a-entity id='towergot' class="signFinish" obj-model='obj:#towerobj; mtl:#towermtl' scale='0.015 0.015 0.015' position='-6 0 -9' rotation='0 0 0' visible="false">
+  </a-entity> 
+  <a-entity id='carnegiegot' class="signFinish" obj-model='obj:#carnegieobj; mtl:#carnegiemtl' scale='0.015 0.015 0.015' position='-6 -1 -9' rotation='0 0 0' visible="false">
+  </a-entity> 
+
+  </a-entity>  
 
 
 <a-entity position="0 0 0">
@@ -160,15 +200,14 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
  </a-entity>
   
  </a-scene>
-   <script src="map.js"></script>
+  
+  <script src="map.js"></script>
   <script src="test.js"></script>
   <script src="variable.js"></script>
   <script src="portalfunction.js"></script>
   <script src="coorImagefunction.js"></script>
-  
-
-
   <link rel="stylesheet" type="text/css" href=" stylecss.css">
+  
   </body>
  </html>
     

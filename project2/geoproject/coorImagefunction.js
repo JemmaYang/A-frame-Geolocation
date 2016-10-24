@@ -30,7 +30,7 @@ function show(){
   //Make the geolocation call.  This function will do the rest of the
   //variable checking for us.
   geolocationCall = navigator.geolocation.watchPosition(checkReceivedLocation, geo_error, geo_options);
-
+  infoWindow = new google.maps.InfoWindow({map: map});
 
 }
 
@@ -52,9 +52,27 @@ function checkReceivedLocation(positionData)
     console.log(imageIndex);
 
     console.log("checking five locations.");
-   
 
     var currentLocation = positionData.coords;
+
+    //try combine map
+
+    finishtour();
+
+     var pos = {
+         lat: currentLocation.latitude,
+         lng: currentLocation.longitude
+
+       };
+
+       console.log("run here");
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Your position.');
+
+      //try combine  map
+   
+
+    
     
     for(var i=0; i<locations.length; i++){
     //calculating distance with the circleDistance script.
@@ -82,17 +100,21 @@ function checkReceivedLocation(positionData)
           resultText+="\nLocation was reached! Updating scene now.";
           console.log("Location was reached. Updating scene now.");
 
-          var showImagePlane = document.getElementById("historicImage");
-          showImagePlane.setAttribute("visible",true);
+          var showImagePlane = document.getElementsByClassName("historicImage");
+          showImagePlane[i].setAttribute("visible",true);
           //showImagePlane.innerHTML += "<a-entity id='robotContainer' visible = 'true' ><a-entity id='robotSecond' obj-model='obj:#robot-obj; mtl:#robot-mtl' scale='0.05 0.05 0.05' position='0 0 2' rotation='0 -25 0' onclick='countNum()'></a-entity></a-entity>"
 
           var getImage = imageIndex[i].src;
-          showImagePlane.setAttribute("src", getImage);
+          showImagePlane[i].setAttribute("src", getImage);
 
           var displayCor = document.getElementById("coordiContainer");
           displayCor.setAttribute("visible",false);
 
           console.log(locations[i].name);
+
+          var showGotSign = document.getElementsByClassName("signFinish");
+          console.log(showGotSign[i]);
+          showGotSign[i].setAttribute("visible",true);
 
           //var addPlaceMenu =document.getElementById("footArea")
           //addPlaceMenu.innerHTML += "<div>"+ locations[i].name +"</div>"
@@ -105,6 +127,8 @@ function checkReceivedLocation(positionData)
             
             console.log("Location hasn't been reached yet.");
             resultText+="\nLocation hasn't been reached yet.";
+           var hideImagePlane = document.getElementsByClassName("historicImage");
+           hideImagePlane[i].setAttribute("visible",false);
           }
 
         textList[i].setAttribute("text",resultText) ;
@@ -114,3 +138,33 @@ function checkReceivedLocation(positionData)
           debugText.setAttribute("visible", false);
 }
 
+
+function finishtour(){
+  var signCollect = document.getElementsByClassName("signFinish")
+  var signVisible = new Array(5);
+  var ifTourFinish = false;
+  for(var a=0; a<signCollect.length; a++){
+     signVisible[a] = signCollect[a].getAttribute("visible")};
+
+     console.log(signVisible);
+
+  for(var c=0; c<signVisible.length; c++){
+    console.log(signVisible[c]);
+    if(signVisible[c]==true){
+       ifTourFinish = true;
+
+    }
+    else{
+      ifTourFinish = false;
+      break};
+  }
+
+     console.log(ifTourFinish);
+
+   if (ifTourFinish==true){
+    var showFinishText = document.getElementById("firstPage")
+    showFinishText.innerHTML ="<a-text text='You have completely visited five historical places in this tour. Do you want to finish this tour?' color='#52DACA' position='-2 0 -2' scalse='1.2 1.2 1.2' width='500' align='left' onclick='finishThisTour()'></a-text>"
+       console.log("finish.")  
+   }
+  
+};
