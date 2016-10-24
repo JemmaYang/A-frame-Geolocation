@@ -68,7 +68,7 @@ function checkPortalLocation(positionData)
                                    portalLocations[0].latitude);
 
 
-     resultText += "\nThe Time machine is "+ newDistance.toFixed(4)+" km.";
+     resultText += "\nThe Time machine is "+ newDistance.toFixed(4)+" kms away.";
 
     console.log(resultText);
      console.log(currentLocation.longitude);
@@ -90,7 +90,7 @@ function checkPortalLocation(positionData)
           resultText+="\nYou have found the time machine!\nClick the machine to begin a history journey!";
           console.log("Location was reached. Updating scene now.");
           var displayPortal = document.getElementById("firstPage");
-          displayPortal.innerHTML = "<a-entity id='timeMachine' obj-model='obj:#timemachine-obj; mtl:#timemachine-mtl' scale='0.05 0.05 0.05' position='0 -2 -5' rotation='0 60 10' onclick='show()'></a-entity>"
+          displayPortal.innerHTML = "<a-entity id='timeMachine' obj-model='obj:#timemachine-obj; mtl:#timemachine-mtl' scale='0.05 0.05 0.05' position='0 -2 -5' rotation='0 60 10' onclick='show()' sound='src: #showUp; autoplay: true; volume:2;'></a-entity>"
           navigator.geolocation.clearWatch(geolocationCall);
           
       }

@@ -77,11 +77,19 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
   <a-asset-item id="towermtl" src="../model/tower.mtl"></a-asset-item>
   <a-asset-item id="carnegieobj" src="../model/carnegie.obj"></a-asset-item>
   <a-asset-item id="carnegiemtl" src="../model/carnegie.mtl"></a-asset-item>
+
+  
+  <audio id="back" src="background.mp3">
+  <audio id="message" src="messageBell.mp3">
+  <audio id="showUp" src="showeffect.mp3">
+  <audio id="finish" src="RWreck.mp3">
+
+
   
  </a-assets>
 
 
- <a-entity id="firstPage" >
+ <a-entity id="firstPage" sound="src: #back; autoplay: true; volume:0.5; loop:true">
 
      <a-entity obj-model="obj: #timemachine-obj; mtl: #timemachine-mtl" scale="0.05 0.05 0.05">
         <a-entity scale="2 2 2">
@@ -99,7 +107,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
       </a-entity>
 
 
-  <a-image src="#start" width="1" height="0.25" opacity="0.75" position="0 1 -1.5" onclick="jumpBox()">
+  <a-image src="#start" width="1" height="0.25" opacity="0.75" position="0 1 -1.5" onclick="jumpBox()" >
   
   <a-animation attribute="scale" from="2 0 2" to="1 1 1" delay="1500"
                        dur="1200" fill="both" easing="ease-out"></a-animation>
@@ -127,7 +135,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
 
   </a-entity>
 
-  <a-text id="getText" text=" " color="#52DACA" position="-2 0 -6" scale="1.2 1.2 1.2" width="500" align="left">
+  <a-text id="getText" text=" " color="#52DACA" position="-2.1 0 -6" scale="1.2 1.2 1.2" width="500" align="left">
     
   </a-text>
 
@@ -138,34 +146,35 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
   
  <a-entity id="coordiContainer" visible= "false">  
    <a-entity id='cordiLib' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-1.5 -2 -4' rotation='0 60 10' >
-     <a-text class="CoordText" text="1-TESTING THE TEXT" color="#52DACA" position="-20 115 -2" width="400" aligh="left" scale="50 50 50" rotation= "0 -90 0"></a-text> 
+     <a-text class="CoordText" text="1-TESTING THE TEXT" color="#00008B" position="-20 115 -2" width="400" aligh="left" scale="50 50 50" rotation= "0 -90 0"></a-text> 
    </a-entity>
 
    <a-entity id='cordiSwa' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-3 -2 -8' rotation='0 90 10'>
-     <a-text class="CoordText" text="2" color="#52DACA" position="-20 125 -2" width="400" aligh="left" scale="70 70 70" rotation= "0 -90 0"></a-text> 
+     <a-text class="CoordText" text="2" color="#00008B" position="-20 125 -2" width="400" aligh="left" scale="70 70 70" rotation= "0 -90 0"></a-text> 
    </a-entity>
 
    <a-entity id='cordiGra' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='0 -2 -9' rotation='0 60 10' >
-     <a-text class="CoordText" text="3" color="#52DACA" position="-20 130 -2" width="400" aligh="left" scale="70 70 70" rotation= "0 -90 0"></a-text> 
+     <a-text class="CoordText" text="3" color="#00008B" position="-20 130 -2" width="400" aligh="left" scale="70 70 70" rotation= "0 -90 0"></a-text> 
    </a-entity>
 
    <a-entity id='cordiTow' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='4 -2 -6' rotation='0 60 10' >
-     <a-text class="CoordText" text="4" color="#52DACA" rotation= "0 -90 0" position="-20 120 -2" width="400" scale="70 70 70" aligh="left"></a-text>
+     <a-text class="CoordText" text="4" color="#00008B" rotation= "0 -90 0" position="-20 120 -2" width="400" scale="70 70 70" aligh="left"></a-text>
    </a-entity>
 
    <a-entity id='cordiCar' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='1.5 -2 -3' rotation='0 60 10'  >
-     <a-text class="CoordText" text="5" color="#52DACA" rotation= "0 -90 0" position="-20 110 -2" width="400" aligh="left" scale="50 50 50"></a-text> 
+     <a-text class="CoordText" text="5" color="#00008B" rotation= "0 -90 0" position="-20 110 -2" width="400" aligh="left" scale="50 50 50"></a-text> 
    </a-entity>
 </a-entity>
    
   
   <a-entity id="planeContainer">
-   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
-   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
-   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
-   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
-   <a-plane class="historicImage" width="20" height="25" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
 
+    <a-animation arrtibute="scale" from="0.9 0.9 0.9" to="1.4 1.4 1.4" during="3000" begin="click"></a-animation>
    </a-entity>
  
  <a-entity id="gotSignContainer" >

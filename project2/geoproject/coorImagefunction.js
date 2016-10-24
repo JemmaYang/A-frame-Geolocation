@@ -163,7 +163,9 @@ function finishtour(){
 
    if (ifTourFinish==true){
     var showFinishText = document.getElementById("firstPage")
-    showFinishText.innerHTML ="<a-text text='You have completely visited five historical places in this tour. Do you want to finish this tour?' color='#52DACA' position='-2 0 -2' scalse='1.2 1.2 1.2' width='500' align='left' onclick='finishThisTour()'></a-text>"
+    showFinishText.innerHTML ="<a-text id='youFinished' text='You have completely visited five historical places in this tour. Do you want to finish this tour?' color='#52DACA' position='-2 0 -2' scalse='1.2 1.2 1.2' width='500' align='left' onclick='finishThisTour()'></a-text>"
+    var finishTextPlane = document.getElementById("youFinished")
+    finishTextPlane.innerHTML = "<a-plane color='#292931' width='3.2' height='1.5' rotation='0 0 0' position='1.2 0.5 -0.5' opacity='0.5'></a-plane>"
        console.log("finish.")  
    }
   
