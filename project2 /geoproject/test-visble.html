@@ -8,12 +8,12 @@
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
     <script src="../resources/js/aframe-extras.shadows.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
-    
+    <!--
     <script src="../resources/js/argon.min.js"></script>
     <script src="../build.js"></script>
     <script src="../resources/js/CSS3DArgonRenderer.js"></script>
     <script src="../resources/js/CSS3DArgonHUD.js"></script>
-   
+   -->
     <script src="../resources/js/aframe-look-at-component.js"></script>
     <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../resources/style.css">
@@ -168,13 +168,24 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
    
   
   <a-entity id="planeContainer">
-   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
-   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
-   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
-   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
-   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" visible="false"></a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" rotation="0 70 0" visible="false">
+   
+   <a-animation arrtibute="rotation" from="0 70 0" to="0 0 0" dur="2200" begin="click"></a-animation>
+   </a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" rotation="0 70 0" visible="false">
+   <a-animation arrtibute="rotation" from="0 70 0" to="0 0 0" dur="2200" begin="click"></a-animation>
+   </a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" rotation="0 70 0" visible="false">
+   <a-animation arrtibute="rotation" from="0 70 0" to="0 0 0" dur="2200" begin="click"></a-animation>
+   </a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" rotation="0 70 0" visible="false">
+   <a-animation arrtibute="rotation" from="0 70 0" to="0 0 0" dur="2200" begin="click"></a-animation>
+   </a-plane>
+   <a-plane class="historicImage" width="16" height="20" position="0 3 -22" opacity="0.8" color= "#DCDCDC" rotation="0 70 0" visible="false">
+   <a-animation arrtibute="rotation" from="0 70 0" to="0 0 0" dur="2200" begin="click"></a-animation>
+   </a-plane>
 
-    <a-animation arrtibute="scale" from="0.9 0.9 0.9" to="1.4 1.4 1.4" during="3000" begin="click"></a-animation>
+    
    </a-entity>
  
  <a-entity id="gotSignContainer" >
