@@ -26,8 +26,8 @@ var locations= [
 {
 name:"Library",
 //real location
-latitude: 33.774741,
-longitude: -84.396540
+latitude: 33.774459,
+longitude: -84.395657
 
 
 
@@ -38,8 +38,8 @@ longitude: -84.396540
 {
 name:"Swann Building",
 //real location
- latitude:33.7715825,
- longitude:-84.3974803 
+ latitude:33.771625,
+ longitude:-84.395270 
  
 // latitude : 33.777390,
 //  longitude: -84.408428
@@ -48,8 +48,8 @@ name:"Swann Building",
 //location 3 : grant field.
 {
 name:"Grant Field",
-latitude:33.7724493,
-longitude:-84.3949941   
+latitude:33.772353,
+longitude:-84.392805
 },
 
 //location 4 : tech tower.
@@ -62,8 +62,8 @@ longitude:-84.3970267
 //location 5 : carnegie building.
 {
 name:"Carnegie Building",
-latitude: 33.773705,      
-longitude: -84.3970588
+latitude: 33.772249,      
+longitude: -84.394265
 }
 ];
 
