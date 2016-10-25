@@ -65,12 +65,12 @@ if (typeof(Number.prototype.toRad) === "undefined") {
 
 function show(){
   
-  console.log("Starting the program.");
+  console.log("Starting the program with five places.");
 
   //Make the geolocation call.  This function will do the rest of the
   //variable checking for us.
   var geolocationCall = navigator.geolocation.watchPosition(checkReceivedLocation);
-  
+
 }
 
 
@@ -78,8 +78,16 @@ function show(){
 function checkReceivedLocation(positionData)
 {
   
-    console.log("checking location.");
+    console.log("checking five locations.");
     var resultText =" ";
+
+    var displayCor = document.getElementById("firstPage");
+      displayCor.innerHTML = "<a-entity id='cordiLib' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-3 -2 -7' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiSwa' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='-1 -2 -5' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiGra' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='0 -2 -10' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiTow' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='1 -2 -5' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-entity id='cordiCar' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='3 -2 -7' rotation='0 60 10'></a-entity>"
+      displayCor.innerHTML += "<a-animation attribute='ratation' from='0 -330 0' to='0 30 0' during='2000'  repeat='indefinite' "
 
     var currentLocation = positionData.coords;
     for(var i=0; i<locations.length; i++){
@@ -91,7 +99,7 @@ function checkReceivedLocation(positionData)
                                    locations[i].latitude);
 
 
-      resultText += "\n"+locations[i].name+" is "+ newDistance.toFixed(4)+".";
+      resultText += "\n"+locations[i].name+" is "+ newDistance.toFixed(4)+" km.";
 
       console.log(resultText);
       console.log(currentLocation.longitude);
@@ -114,8 +122,11 @@ function checkReceivedLocation(positionData)
             console.log("Location hasn't been reached yet.");
             resultText+="\nLocation hasn't been reached yet.";
           }
-          var debugText = document.getElementById("startText")
-          debugText.setAttribute('text', resultText);
+        var textList = document.getElementsByClassName("Coordinates")   
+        textList[i].innerHTML += "<a-text id= 'distanceText' text=' ' color='#52DACA' position='-20 115 -2' width='400' align='left' scale ='60 60 60' rotation='0 -90 0'></a-text>"
+        var showDistance = document.getElementById("distanceText")
+        showDistance.setAttribute("text", resultText)
       }
-
+   var debugText = document.getElementById("startText")
+          debugText.setAttribute("visible", false);
 }

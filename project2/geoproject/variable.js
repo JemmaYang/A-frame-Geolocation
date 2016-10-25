@@ -55,8 +55,8 @@ longitude:-84.392805
 //location 4 : tech tower.
 {
 name:"Tech Tower",
-latitude:33.7723604,
-longitude:-84.3970267  
+latitude:33.772538,
+longitude:-84.394847
 },
 
 //location 5 : carnegie building.
@@ -67,7 +67,7 @@ longitude: -84.394265
 }
 ];
 
-var maxDistance=0.055;
+var maxDistance=0.045;
 
 var geolocationOptions = {
 
