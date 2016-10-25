@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test page</title>
+    
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="../resources/js/aframe-extras.shadows.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    
+    <script src="../resources/js/argon.min.js"></script>
+    <script src="../build.js"></script>
+    <script src="../resources/js/CSS3DArgonRenderer.js"></script>
+    <script src="../resources/js/CSS3DArgonHUD.js"></script>
+   
+    <script src="../resources/js/aframe-look-at-component.js"></script>
+    <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../resources/style.css">
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    
+
+     
+
+    
+  </head>
+  <body>
+     
+ <ar-scene id="aframeScene"> 
+ <!-- uploade all objects -->
+ <a-assets>
+ <img id="library" class="oldImage" src="../image/Library.jpg">
+ <img id="swann" class="oldImage" src="../image/Swann Building.jpg">
+ <img id="grant" class="oldImage" src="../image/Grant Field.jpg">
+ <img id="tower" class="oldImage" src="../image/Tech Tower.jpg">
+ <img id="carnegie" class="oldImage" src="../image/Carnegie Building.jpg">
+
+ <img id="start" src="../image/start.png">
+
+  <a-asset-item id="box-obj" src="../model/box.obj"></a-asset-item>
+  <a-asset-item id="box-mtl" src="../model/box.mtl"></a-asset-item>
+  <a-asset-item id="timemachine-obj" src="../model/timemachine.obj"></a-asset-item>
+  <a-asset-item id="timemachine-mtl" src="../model/timemachine.mtl"></a-asset-item>
+  <a-asset-item id="coordinate-obj" src="../model/coordinate.obj"></a-asset-item>
+  <a-asset-item id="coordinate-mtl" src="../model/coordinate.mtl"></a-asset-item>
+  <a-asset-item id="robot-obj" src="../model/robot.obj"></a-asset-item>
+  <a-asset-item id="robot-mtl" src="../model/robot.mtl"></a-asset-item>
+  
+ </a-assets>
+
+
+  
+        <ar-geopose id="GT" lla=" -84.4000000 33.773900" userposition="true" userotation="false">
+            <a-entity obj-model="obj: #timemachine-obj; mtl: #timemachine-mtl" scale="2 2 2" position="0 1 -5.23" rotation="0 -90 0">
+                <a-animation attribute="rotation" begin="click" to="0 0 0" dur="2000"></a-animation>
+            </a-entity>
+        </ar-geopose>
+        
+        <ar-camera>
+            <a-cursor id="cursor">
+                <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+            </a-cursor>
+        </ar-camera>
+    </ar-scene>
+ 
+  
+
+
+
+
+
+        
+  
+ 
+  
+  </body>
+ </html>
+    
+    

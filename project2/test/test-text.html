@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test page</title>
+    
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="../resources/js/aframe-extras.shadows.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <!--
+    <script src="../resources/js/argon.min.js"></script>
+    <script src="../build.js"></script>
+    <script src="../resources/js/CSS3DArgonRenderer.js"></script>
+    <script src="../resources/js/CSS3DArgonHUD.js"></script>
+   -->
+    <script src="../resources/js/aframe-look-at-component.js"></script>
+    <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../resources/style.css">
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+     
+
+    
+  </head>
+  <body>
+    
+ <a-scene> 
+ <!-- uploade all objects -->
+ <a-assets>
+  <a-asset-item id="coordinate-obj" src="../model/coordinate.obj"></a-asset-item>
+  <a-asset-item id="coordinate-mtl" src="../model/coordinate.mtl"></a-asset-item>
+</a-assets>
+
+<a-entity id='cordiTow' class='Coordinates' obj-model='obj:#coordinate-obj; mtl:#coordinate-mtl' scale='0.02 0.02 0.02' position='3 -2 -5' rotation='0 60 10' >
+
+ <a-text id="startText" text="test test"
+               color="#52DACA" position="-20 130 -2" rotation= "0 -90 0" scale="80 80 80" width="600" align="left">
+               <a-plane color="#292931"  width="2" height="1" rotation="0 0 0" position="0.6 -0.3 -0.5" opacity="0.5">
+               </a-plane>
+  </a-text>
+  
+
+</a-entity>
+  
+ 
+
+  <a-entity position="0 0 3">
+  <a-camera >
+     <a-cursor color="black" fuse="true" fuseTimeout="500" ></a-cursor>
+  </a-camera>
+</a-entity>
+ 
+  
+ </a-scene>
+  
+  </body>
+ </html>
+    
+    

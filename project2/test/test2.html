@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test page</title>
+    
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="../resources/js/aframe-extras.shadows.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <!--
+    <script src="../resources/js/argon.min.js"></script>
+    <script src="../build.js"></script>
+    <script src="../resources/js/CSS3DArgonRenderer.js"></script>
+    <script src="../resources/js/CSS3DArgonHUD.js"></script>
+   -->
+    <script src="../resources/js/aframe-look-at-component.js"></script>
+    <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../resources/style.css">
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+     
+
+    
+  </head>
+  <body>
+    
+ <a-scene> 
+ <!-- uploade all objects -->
+ <a-assets>
+ <img id="library" src="../image/Library.jpg">
+ <img id="grant" src="../image/Grant Field.jpg">
+ <img id="tower" src="../image/Tech Tower.jpg">
+ <img id="swann" src="../image/Swann Building.jpg">
+ <img id="carnegie" src="../image/Carnegie Building.jpg">
+ <img id="start" src="../image/start.png">
+  <a-asset-item id="box-obj" src="../model/box.obj"></a-asset-item>
+  <a-asset-item id="box-mtl" src="../model/box.mtl"></a-asset-item>
+  <a-asset-item id="timemachine-obj" src="../model/timemachine.obj"></a-asset-item>
+  <a-asset-item id="timemachine-mtl" src="../model/timemachine.mtl"></a-asset-item>
+  <a-asset-item id="coordinate-obj" src="../model/coordinate.obj"></a-asset-item>
+  <a-asset-item id="coordinate-mtl" src="../model/coordinate.mtl"></a-asset-item>
+  <a-asset-item id="robot-obj" src="../model/robot.obj"></a-asset-item>
+  <a-asset-item id="robot-mtl" src="../model/robot.mtl"></a-asset-item>
+  
+ </a-assets>
+
+ <a-entity id="firstPage" >
+
+     <a-entity obj-model="obj: #timemachine-obj; mtl: #timemachine-mtl" scale="0.05 0.05 0.05">
+        <a-entity scale="2 2 2">
+         <a-animation attribute="rotation" from="0 -330 0 " to="0 30 0 " repeat="1" dur="2200" fill ="both" easing ="ease-out"></a-animation>
+            <a-entity obj-model="obj: #box-obj; mtl: #box-mtl" scale="0.15 0.15 0.15" position="-5 6 -20" rotation="0 -90 0" alongpath="path:0,0,0 -5,20,-40 -5,6,-20; closed:false; dur:2000; delay:2500">
+            </a-entity>
+       </a-entity>
+       
+    <a-animation attribute="rotation" from="-330 0 0" to="20 70 20" delay="1500"
+                       dur="1200" fill="both" easing="ease-out"></a-animation>
+   <a-animation attribute="scale" from="0 0 0" to="0.05 0.05 0.05" delay="1500"
+                       dur="1200" fill="both" easing="ease-out"></a-animation>
+   <a-animation attribute="position" from="0.5 -0.8 0" to="0.5 1.2 -5" delay="500" dur="500"
+                       fill="both" easing="ease-out"></a-animation>
+      </a-entity>
+
+
+  <a-image src="#start" width="1" height="0.25" opacity="0.75" position="0 1 -1.5" onclick="jumpBox()">
+  
+  <a-animation attribute="scale" from="2 0 2" to="1 1 1" delay="1500"
+                       dur="1200" fill="both" easing="ease-out"></a-animation>
+          <a-animation attribute="position" from="0 -2.3 0" to="0 0.9 -1.5" delay="1000"
+                       dur="1000" fill="both" easing="ease-out"></a-animation>
+        </a-image>
+
+<a-entity>
+ <a-animation attribute="position" from="0 0 -10" to="0 0 -0.5" delay="1000"
+                       dur="1500" fill="both" easing="ease-out"></a-animation>
+<a-animation attribute="scale" from="0 0 2" to="1 1 1" delay="1000"
+                       dur="1500" fill="both" easing="ease-out"></a-animation>
+
+ <a-curvedimage src="#library" radius="8" theta-length="40" height="4"
+                     rotation="0 150 0" opacity="0.8" position="0.1 1.6 -1.6"></a-curvedimage>
+  <a-curvedimage src="#grant" radius="8" theta-length="35" height="4"
+                     opacity="0.8" rotation="0 -170 0" position="-0.2 3.5 -1.7"></a-curvedimage>
+  <a-curvedimage src="#tower" radius="8" theta-length="30" height="5.02"
+                     opacity="0.8" rotation="0 160 0" position="-0.6 4 -1.9"></a-curvedimage>
+  <a-curvedimage src="#swann" radius="8" theta-length="40" height="4.2"
+                     opacity="0.8" rotation="0 -190 0" position="0.1 0.7 -1" ></a-curvedimage>
+  <a-curvedimage src="#carnegie" radius="8" theta-length="35" height="4.2"
+                     opacity="0.8" rotation="0 135 0" position="0.5 2.8 -2.1"></a-curvedimage>
+  </a-entity>
+
+   
+
+  </a-entity>
+
+ 
+  <a-text id="startText" text=" "
+               color="#52DACA" position="-2 2.5 -6" rotation= "10 -7 0" scale="1.5 1.5 1.5" width="600" align="left">
+  </a-text>
+  
+ 
+
+  <a-entity position="0 0 0">
+  <a-camera >
+     <a-cursor color="black" fuse="true" fuseTimeout="500" ></a-cursor>
+  </a-camera>
+</a-entity>
+ 
+  
+ </a-scene>
+  <script src="test.js"></script>
+  <script src="variable.js"></script>
+  <script src="geotest.js"></script>
+  </body>
+ </html>
+    
+    
